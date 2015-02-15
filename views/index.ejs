@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Perfect Pitch Land | Home </title>
+
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <!-- Custom Edits -->
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link href="/stylesheets/sign_in.css" rel="stylesheet">
+  </head>
+
+<body class="homey">
+  
+<!-- Start of navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">  
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Perfect Pitch Land</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if (!currentUser)  {%> 
+              <li><a href="/register">Register</a></li>
+              <li><a href="/login">Login</a></li>
+            <% }else{ %>
+              <li><a href="/logout">Logout</a></li>
+              <li><a href="/users/<%= currentUser.id %>">Score Board</a></li>
+              <li><a href="#">Hello <%= currentUser.firstName %></a></li>
+            <% }%>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<!-- End of Navigation -->
+
+
+<!-- Start of Body -->
+<div class="container">
+  <div class="cover-container">
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="inner cover">
+          <h1 class="cover-heading"></h1>
+            <p class="play_note">
+              <button type="button" class="btn btn-primary btn-lg"><audio src="/audio/b.mp3" controls>>Play Note</button></audio>
+            </p>
+
+            <p>
+              <img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 140px; height: 140px;">
+            </p>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- /container -->
+</div>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </body>
+</html>

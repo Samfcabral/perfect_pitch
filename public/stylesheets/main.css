@@ -1,0 +1,28 @@
+.homey {
+  background: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.navbar {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.play_note {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.notes {
+  height: 140px;
+  width: 140px;
+  background-color: black;
+
+}
+
+
