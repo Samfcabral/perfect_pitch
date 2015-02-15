@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 //End of dependencies
 
-
+ 
 //Session
 app.use(session( {
   secret: 'thisismysecretkey',
@@ -118,12 +118,82 @@ app.get("/fail", function (req, res) {
   res.render("site/fail");
 });
 
+// Function to shuffle array
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+// global variables
+var level = 1;
+var note_number;
+var my_notes_array = [];
+var divs = [];
+
+// setting up all possible divs such that divs are called divs[0] through divs[11]
+for (var i = 1; i < 12; i++) {
+  divs.push(document.getElementById('note' + i));
+}
+
+// function to randomly play a note based on level
+var setup_notes = function (level) {
+  var note_played = Math.ceil(Math.random() * level);
+  note_number = note_played;
+  console.log(note_number);
+}
+
+// function to set up images
+var set_notes = function (level) {
+  for (var i = 0; i < level; i++) {
+    my_notes_array.push(i);
+  }
+  //set inner HTML
+  shuffle(my_notes_array);
+  for (var i = 0; i < level; i++) {
+    divs[i].innerHTML = "<img src=/images/" + my_notes_array[i] + ".png/>";
+  }
+}
+
+// function to check if note played by computer matches note played by user
+var note_match = function (note_number, note_clicked) {
+  if (note_number === note_clicked) {
+    //update score
+      //if applicable update level
+    //show "correct note" message
+  } else {
+    //update score to zero
+    //show "incorrect note" message
+  }
+  setup_notes(level);
+};
+
+// looping through to set click handlers 
+for (var i = 0; i < level; i++) {
+  divs[i].onclick = function(event) {
+    note_match(note_number, my_notes_array[i]);
+  };
+}
+
 
 // CLICK ON "PLAY NOTE" BUTTON ON HOME PAGE
   // On click ("play")
     // hide "play note" button
     // check what level user on
-    // display note options (setup notes)
+    // display note options (setup notes function maybe?)
     // randomly play a note (audibly based on user level)
     // wait for user click
 
@@ -140,10 +210,12 @@ app.get("/fail", function (req, res) {
       // display "play note" button
 
 
-db.sequelize.sync().then(function() {
-  var server = app.listen(process.env.PORT || 3000, function() {
-    console.log(new Array(51).join("*"));
-    console.log("\t LISTENING ON: \n\t\t localhost:3000");
-    console.log(new Array(51).join("*")); 
-  });
-});
+
+
+// db.sequelize.sync().then(function() {
+//   var server = app.listen(process.env.PORT || 3000, function() {
+//     console.log(new Array(51).join("*"));
+//     console.log("\t LISTENING ON: \n\t\t localhost:3000");
+//     console.log(new Array(51).join("*")); 
+//   });
+// });

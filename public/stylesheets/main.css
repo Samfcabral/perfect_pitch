@@ -15,14 +15,15 @@
 
 .play_note {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .notes {
   height: 140px;
   width: 140px;
   background-color: black;
-
+  float: left;
+  margin: 10px;
 }
-
 
