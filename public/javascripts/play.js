@@ -42,7 +42,7 @@ $(function () {
       //update score to zero
       //show "incorrect note" message
     }
-    setup_notes(level);
+    //setup_notes(level);
   };
 
   // looping through to set click handlers 
@@ -53,15 +53,15 @@ $(function () {
   }
 
   // function to set up images
-  var set_notes = function (level) {
+  var set_notes = function(level) {
     for (var i = 0; i < level; i++) {
       my_notes_array.push(i);
     }
-    //set inner HTML
     shuffle(my_notes_array);
+    //set inner HTML
     my_notes_array.forEach(function (note, i) {
-    divs[i].innerHTML = "<img src='images/" + (my_notes_array[i] +1) + ".png'>";
-        });
+      divs[i].innerHTML = "<img src='images/" + (my_notes_array[i] +1) + ".png'>";
+      });
   }
 
   set_notes(level);
@@ -77,11 +77,12 @@ $(function () {
       x.src = "audio/" + note_played +".mp3"; 
       x.play();
   })
-});
 
-  // var y = document.createElement("clicked_note");
-  // console.log("working");
-  //   $(".notes").("click", function () {
-  //     console.log("note clicked");
-  //   })
-  // });
+
+
+  $(".notes").on("click", function () {
+      console.log("note clicked");
+    });
+
+
+});
