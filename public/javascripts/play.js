@@ -5,6 +5,7 @@ var note_guess;
 var note_played;
 var my_notes_array = [];
 var divs_arr = [];
+var score = 0;
 
 // // Function to shuffle an array
 function shuffle(array) {
@@ -50,6 +51,7 @@ $(function () {
 
   set_notes(level);
   
+// On Click of "play note"
   var x = document.createElement("audio"); 
   console.log("Running");
   $(".play").on("click", function () {
@@ -62,6 +64,7 @@ $(function () {
       x.play();
   });
 
+// On Click for each div
   var one = document.getElementById("note1");
     $("#note1").on("click", function () {
       console.log("note clicked");
@@ -96,7 +99,7 @@ $(function () {
     });
 
   var four = document.getElementById("note4");
-    $("#note3").on("click", function () {
+    $("#note4").on("click", function () {
       console.log("note clicked");
       four.src = "audio/" + (my_notes_array[3] + 1)  + ".mp3";
       console.log(four.src);
@@ -106,19 +109,114 @@ $(function () {
       four.src.play();
     });
 
+  var five = document.getElementById("note5");
+    $("#note5").on("click", function () {
+      console.log("note clicked");
+      five.src = "audio/" + (my_notes_array[4] + 1)  + ".mp3";
+      console.log(five.src);
+      note_guess = (my_notes_array[4] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      five.src.play();
+    });
+
+  var six = document.getElementById("note6");
+    $("#note6").on("click", function () {
+      console.log("note clicked");
+      six.src = "audio/" + (my_notes_array[5] + 1)  + ".mp3";
+      console.log(six.src);
+      note_guess = (my_notes_array[5] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      six.src.play();
+    });
+
+  var seven = document.getElementById("note7");
+    $("#note7").on("click", function () {
+      console.log("note clicked");
+      seven.src = "audio/" + (my_notes_array[6] + 1)  + ".mp3";
+      console.log(seven.src);
+      note_guess = (my_notes_array[6] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      seven.src.play();
+    });
+
+  var eight = document.getElementById("note8");
+    $("#note8").on("click", function () {
+      console.log("note clicked");
+      eight.src = "audio/" + (my_notes_array[7] + 1)  + ".mp3";
+      console.log(eight.src);
+      note_guess = (my_notes_array[7] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      eight.src.play();
+    });
+  
+  var nine = document.getElementById("note9");
+    $("#note9").on("click", function () {
+      console.log("note clicked");
+      nine.src = "audio/" + (my_notes_array[8] + 1)  + ".mp3";
+      console.log(nine.src);
+      note_guess = (my_notes_array[8] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      nine.src.play();
+    });
+
+  var ten = document.getElementById("note10");
+    $("#note10").on("click", function () {
+      console.log("note clicked");
+      ten.src = "audio/" + (my_notes_array[9] + 1)  + ".mp3";
+      console.log(ten.src);
+      note_guess = (my_notes_array[9] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      ten.src.play();
+    });
+
+  var eleven = document.getElementById("note11");
+    $("#note11").on("click", function () {
+      console.log("note clicked");
+      eleven.src = "audio/" + (my_notes_array[10] + 1)  + ".mp3";
+      console.log(eleven.src);
+      note_guess = (my_notes_array[10] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      eleven.src.play();
+    });
+
+  var twelve = document.getElementById("note12");
+    $("#note12").on("click", function () {
+      console.log("note clicked");
+      twelve.src = "audio/" + (my_notes_array[11] + 1)  + ".mp3";
+      console.log(twelve.src);
+      note_guess = (my_notes_array[11] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      twelve.src.play();
+    });
+
   // function to check if note played by computer matches note played by user
   var note_match = function (note_guess, note_played) {
     if (note_guess === note_played) {
       console.log("Correct!");
-      //update score
-        //if applicable update level
+      score = score + 1;
+      console.log("Current score " + score);
+        if (score === 5) {
+          level = level + 1;
+          console.log("Current level is " + level);
+          //Reset possible notes
+          score = 0;
+        }
       //show "correct note" message
     } else {
-      console.log("You clicked the wrong note");
-      //update score to zero
+      console.log("Wrong note");
+      score = 0;
+      console.log("Current score " + score);
       //show "incorrect note" message
     }
-    //setup_notes(level);
+    setup_notes(level);
   };
 
  
