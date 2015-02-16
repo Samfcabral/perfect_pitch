@@ -1,9 +1,9 @@
 
 // global variables
-var level = 4;
+var level = 12;
 var note_number;
 var my_notes_array = [];
-var divs = [];
+var divs_arr = [];
 
 // // Function to shuffle an array
 function shuffle(array) {
@@ -28,9 +28,49 @@ function shuffle(array) {
 // when user clicks "play"
 $(function () {
   // setting up divs
-  for (var i = 1; i < 12; i++) {
-    divs.push(document.getElementById('note' + i));
+  for (var i = 1; i <= 12; i++) {
+    divs_arr.push(document.getElementById('note' + i));
   }
+
+  // looping through to set click handlers 
+  // for (var i = 0; i < level; i++) {
+  //   divs_arr[i].onclick = function(event) {
+  //     note_match(note_number, my_notes_array[i]);
+  //   };
+  // }
+
+  // function to set up images
+  var set_notes = function(level) {
+    for (var i = 0; i < level; i++) {
+      my_notes_array.push(i);
+    }
+    shuffle(my_notes_array);
+    //set inner HTML
+    my_notes_array.forEach(function (note, i) {
+      divs_arr[i].innerHTML = "<img src='images/" + (my_notes_array[i] + 1) + ".png'>";
+      });
+  }
+
+  set_notes(level);
+  
+  var x = document.createElement("audio"); 
+  console.log("Running");
+  $(".play").on("click", function () {
+      console.log("clicked");
+      var note_played = Math.ceil(Math.random() * level);
+      console.log(note_played);
+       // var x = document.createElement("audio"); 
+       // console.log(x.ended)
+      x.src = "audio/" + note_played +".mp3"; 
+      x.play();
+  })
+
+
+
+  $(".notes").on("click", function () {
+      console.log("note clicked");
+
+    });
 
   // function to check if note played by computer matches note played by user
   var note_match = function (note_number, note_clicked) {
@@ -45,44 +85,12 @@ $(function () {
     //setup_notes(level);
   };
 
-  // looping through to set click handlers 
-  for (var i = 0; i < level; i++) {
-    divs[i].onclick = function(event) {
-      note_match(note_number, my_notes_array[i]);
-    };
-  }
-
-  // function to set up images
-  var set_notes = function(level) {
-    for (var i = 0; i < level; i++) {
-      my_notes_array.push(i);
-    }
-    shuffle(my_notes_array);
-    //set inner HTML
-    my_notes_array.forEach(function (note, i) {
-      divs[i].innerHTML = "<img src='images/" + (my_notes_array[i] +1) + ".png'>";
-      });
-  }
-
-  set_notes(level);
-  
-  var x = document.createElement("audio"); 
-  console.log("Running");
-  $(".play").on("click", function () {
-      console.log("clicked");
-      var note_played = Math.ceil(Math.random() * level);
-      console.log(note_played);
-       // var x = document.createElement("audio"); 
-       console.log(x.ended)
-      x.src = "audio/" + note_played +".mp3"; 
-      x.play();
-  })
-
-
-
-  $(".notes").on("click", function () {
-      console.log("note clicked");
-    });
+  // // looping through to set click handlers 
+  // for (var i = 0; i < level; i++) {
+  //   divs[i].onclick = function(event) {
+  //     note_match(note_number, my_notes_array[i]);
+  //   };
+  // }
 
 
 });
