@@ -13,23 +13,5 @@ The final project can be found HERE.
 <h2>MVP:</h2>
 <p>An application that will play individual notes and present users with color coded (and notated) options. The game will start presenting only two notes (with only two possible squares). Once the user reaches a certain level of proficiency (get five notes correct consecutively) a third note will be introduced. This pattern will continue until the entire chromatic scale is presented.</p>
 
-<h2>Color association:</h2>
-<p>In order to maximize the benefits of spacial memory, colors will be used and remain constant for each note as follows.</p>
-
-<ul>
-  <li>A = #000000</li>
-  <li>Bb = #660033</li>
-  <li>B = #990099</li>
-  <li>C = #6600CC</li>
-  <li>Db = #3399FF</li>
-  <li>D = #66FFFF</li>
-  <li>Eb = #33FF99</li>
-  <li>E = #CCFF99</li>
-  <li>F = #FFFF33</li>
-  <li>F# = #FF0000</li>
-  <li>G = #0000FF</li>
-  <li>Ab = #FFFFFF</li>
-</ul>
-
 <p>A/B testing could be done where instead of using colored squares, cartoon characters would be used to identify notes.</p>
 
