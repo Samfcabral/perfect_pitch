@@ -2,6 +2,7 @@
 // global variables
 var level = 3;
 var note_guess;
+var note_played;
 var my_notes_array = [];
 var divs_arr = [];
 
@@ -53,7 +54,7 @@ $(function () {
   console.log("Running");
   $(".play").on("click", function () {
       console.log("clicked");
-      var note_played = Math.ceil(Math.random() * level);
+      note_played = Math.ceil(Math.random() * level);
       console.log("This is the note played " + note_played);
        // var x = document.createElement("audio"); 
        // console.log(x.ended)
@@ -79,6 +80,7 @@ $(function () {
       console.log(two.src);
       note_guess = (my_notes_array[1] + 1);
       console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
       two.src.play();
     });
 
@@ -89,6 +91,7 @@ $(function () {
       console.log(three.src);
       note_guess = (my_notes_array[2] + 1);
       console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
       three.src.play();
     });
 
@@ -99,12 +102,13 @@ $(function () {
       console.log(four.src);
       note_guess = (my_notes_array[3] + 1);
       console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
       four.src.play();
     });
 
   // function to check if note played by computer matches note played by user
   var note_match = function (note_guess, note_played) {
-    if (note_guess === note_clicked) {
+    if (note_guess === note_played) {
       console.log("Correct!");
       //update score
         //if applicable update level
