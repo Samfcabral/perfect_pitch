@@ -1,7 +1,7 @@
 
 // global variables
-var level = 12;
-var note_number;
+var level = 3;
+var note_guess;
 var my_notes_array = [];
 var divs_arr = [];
 
@@ -32,13 +32,6 @@ $(function () {
     divs_arr.push(document.getElementById('note' + i));
   }
 
-  // looping through to set click handlers 
-  // for (var i = 0; i < level; i++) {
-  //   divs_arr[i].onclick = function(event) {
-  //     note_match(note_number, my_notes_array[i]);
-  //   };
-  // }
-
   // function to set up images
   var set_notes = function(level) {
     for (var i = 0; i < level; i++) {
@@ -49,6 +42,9 @@ $(function () {
     my_notes_array.forEach(function (note, i) {
       divs_arr[i].innerHTML = "<img src='images/" + (my_notes_array[i] + 1) + ".png'>";
       });
+    console.log(divs_arr);
+    console.log("This is my_notes_array " + my_notes_array);
+
   }
 
   set_notes(level);
@@ -58,39 +54,68 @@ $(function () {
   $(".play").on("click", function () {
       console.log("clicked");
       var note_played = Math.ceil(Math.random() * level);
-      console.log(note_played);
+      console.log("This is the note played " + note_played);
        // var x = document.createElement("audio"); 
        // console.log(x.ended)
       x.src = "audio/" + note_played +".mp3"; 
       x.play();
-  })
+  });
 
-
-
-  $(".notes").on("click", function () {
+  var one = document.getElementById("note1");
+    $("#note1").on("click", function () {
       console.log("note clicked");
+      one.src = "audio/" + (my_notes_array[0] + 1)  + ".mp3";
+      console.log(one.src);
+      note_guess = (my_notes_array[0] + 1);
+      console.log("Note guessed " + note_guess);
+      note_match(note_guess, note_played);
+      one.play();
+    });
 
+  var two = document.getElementById("note2");
+    $("#note2").on("click", function () {
+      console.log("note clicked");
+      two.src = "audio/" + (my_notes_array[1] + 1)  + ".mp3";
+      console.log(two.src);
+      note_guess = (my_notes_array[1] + 1);
+      console.log("Note guessed " + note_guess);
+      two.src.play();
+    });
+
+  var three = document.getElementById("note3");
+    $("#note3").on("click", function () {
+      console.log("note clicked");
+      three.src = "audio/" + (my_notes_array[2] + 1)  + ".mp3";
+      console.log(three.src);
+      note_guess = (my_notes_array[2] + 1);
+      console.log("Note guessed " + note_guess);
+      three.src.play();
+    });
+
+  var four = document.getElementById("note4");
+    $("#note3").on("click", function () {
+      console.log("note clicked");
+      four.src = "audio/" + (my_notes_array[3] + 1)  + ".mp3";
+      console.log(four.src);
+      note_guess = (my_notes_array[3] + 1);
+      console.log("Note guessed " + note_guess);
+      four.src.play();
     });
 
   // function to check if note played by computer matches note played by user
-  var note_match = function (note_number, note_clicked) {
-    if (note_number === note_clicked) {
+  var note_match = function (note_guess, note_played) {
+    if (note_guess === note_clicked) {
+      console.log("Correct!");
       //update score
         //if applicable update level
       //show "correct note" message
     } else {
+      console.log("You clicked the wrong note");
       //update score to zero
       //show "incorrect note" message
     }
     //setup_notes(level);
   };
 
-  // // looping through to set click handlers 
-  // for (var i = 0; i < level; i++) {
-  //   divs[i].onclick = function(event) {
-  //     note_match(note_number, my_notes_array[i]);
-  //   };
-  // }
-
-
+ 
 });
