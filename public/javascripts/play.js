@@ -6,6 +6,7 @@ var note_played;
 var my_notes_array = [];
 var divs_arr = [];
 var score = 0;
+var wrong = 0;
 
 // // Function to shuffle an array
 function shuffle(array) {
@@ -27,8 +28,15 @@ function shuffle(array) {
   return array;
 }
 
-// when user clicks "play"
 $(function () {
+  $.get("/users_level").
+    done(function (data) {
+      level = data[0].levelId || 2;
+      $("#currentScore").html(score);
+      $("#currentLevel").html(level);
+      $('.stupe').remove();
+      set_notes(level);
+    });
     $("#currentScore").html(score);
     $("#currentLevel").html(level);
   // setting up divs
@@ -51,7 +59,7 @@ $(function () {
     console.log("This is my_notes_array " + my_notes_array);
   };
 
-  set_notes(level);
+
   
 // On Click of "play note"
   var x = document.createElement("audio"); 
@@ -64,6 +72,21 @@ $(function () {
        // console.log(x.ended)
       x.src = "audio/" + note_played +".mp3"; 
       x.play();
+      $('.stupe').remove();
+      console.log("AFTER: ",$('.stupe'));
+      my_notes_array = [];
+      set_notes(level);
+      $(".replay").hide();
+      $(x).on("ended", function() {
+        $(".replay").show();
+      });
+  });
+  $(".replay").on("click", function () {
+    x.play();
+    $(".replay").hide();
+    $(x).on("ended", function() {
+      $(".replay").show();
+    })
   });
 
 // On Click for each div
@@ -209,22 +232,33 @@ $(function () {
       $("#currentLevel").html(level);
       console.log("Current score " + score);
         if (score === 5) {
+          $(".feedback_message").html("You moved to the next level!");
           level = level + 1;
+          $.post("/users_level", {level: level})
+          $("#currentScore").html(score);
+          $("#currentLevel").html(level);
           console.log("Current level is " + level);
           console.log("BEFORE: ",$('.stupe'));
-          $('.stupe').remove();
-          console.log("AFTER: ",$('.stupe'));
-          my_notes_array = [];
-          set_notes(level);
           score = 0;
         }
     } else {
       console.log("Wrong note");
+      wrong +=1;
       $(".feedback_message").html("Incorrect!");
       score = 0;
       console.log("Current score " + score);
+      if (wrong === 3 && level > 2) {
+        level = level -1;
+        $.post("/users_level", {level: level});
+        wrong = 0;
+      }
       $("#currentScore").html(score);
       $("#currentLevel").html(level);
+
     }
+      $('.stupe').remove();
+      console.log("AFTER: ",$('.stupe'));
+      my_notes_array = [];
+      // set_notes(level);
   };
 });

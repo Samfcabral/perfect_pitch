@@ -39,6 +39,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        this.hasOne(models.users_level);
       },
       findByEmail: function (email) {
         return this.find({

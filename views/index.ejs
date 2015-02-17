@@ -44,7 +44,6 @@
               <li><a href="/login">Login</a></li>
             <% }else{ %>
               <li><a href="#">Hello <%= currentUser.name %></a></li>
-              <li><a href="/users/<%= currentUser.id %>">Score Board</a></li>
               <li><a href="/logout">Logout</a></li>
             <% }%>
           </ul>
@@ -61,15 +60,27 @@
       <div class="site-wrapper-inner">
         <div class="inner cover">
 
+          <% if (!currentUser)  {%> 
+          <div class="row">
+            <div class="welcome_message">
+            <br>
+              <h2>Welcome to Perfect Pitch Land!</h2>
+              <h4>If you don't have an account you can <a href="/register">sign up here</a></h4>
+              <h4>If you already have an account please <a href="/login">sign in</a></h4>
+            </div>
+          </div>
+          <% }else{ %>
           <div class="row">
             <div class="col-xs-6 col-sm-5">
               <h4 class="cover-heading">Level: <span id="currentLevel"></span> </h4>
               <h4 class="cover-heading">Scoreboard: <span id="currentScore"></span></h4>
             </div>
             <div class="col-xs-6 col-sm-7">
-              <button type="button" class="btn btn-primary btn-lg play">Play Note</button>
+              <button type="button" class="btn btn-primary btn-lg play">New Note</button>
+              <button type="button" class="btn btn-lg replay">Replay</button>
             </div>
           </div>
+          <% }%>
 
           <div class="row">
             <div class="message">

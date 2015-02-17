@@ -120,6 +120,34 @@ app.get("/fail", function (req, res) {
   res.render("site/fail");
 });
 
+
+app.post("/users_level", function (req, res) {
+  console.log(req.body, req.user)
+  db.users_level.findOrCreate({
+    where: {
+      userId: req.user.id
+    }
+  }).then(function (level) {
+    level[0].updateAttributes({
+      levelId: req.body.level
+    }).then(function (level){
+      res.json(level);
+    });
+  });
+});
+
+app.get("/users_level", function (req, res) {
+  db.users_level.findOrCreate({
+    where: {
+      userId: req.user.id
+    }
+  }).then(function (level) {
+    res.json(level);
+  });
+});
+
+
+
 db.sequelize.sync().then(function() {
   var server = app.listen(process.env.PORT || 3000, function() {
     console.log(new Array(51).join("*"));

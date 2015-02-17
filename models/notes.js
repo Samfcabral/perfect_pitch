@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // this.belongsTo(models.level)
+        this.belongsTo(models.level)
       }
     }
   });

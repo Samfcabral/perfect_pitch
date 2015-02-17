@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-.play {
+.play, .replay {
   float: left;
   margin-top: 35px;
   margin-left: 25px;
@@ -35,5 +35,9 @@ h4 {
 .feedback_message {
   margin-top: 10px;
   margin-bottom: 15px;
+  text-align: center;
+}
+
+.welcome_message {
   text-align: center;
 }

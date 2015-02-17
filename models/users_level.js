@@ -2,13 +2,13 @@
 
 module.exports = function(sequelize, DataTypes) {
   var users_level = sequelize.define("users_level", {
-    user_id: DataTypes.INTEGER,
-    level_id: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    levelId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
-        // this.hasMany(models.users)
-        // this.hasMany(models.level)
+        this.belongsTo(models.users);
+        this.belongsTo(models.level);
       }
     }
   });
