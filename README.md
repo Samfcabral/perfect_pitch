@@ -8,7 +8,7 @@ The final project can be found HERE.
 
 <p>I still believe that by systematically introducing notes while maximizing the benefits of spacial memory we can in fact teach the vast majority of children in the world to have perfect pitch. I concede that a small percentage of the population will never be able to have perfect pitch. This should go without saying given that a certain percentage of the population is and will sadly continue to be deaf.</p>
 
-<p>This project aims to put my theory to rest (whether I'm right or wrong). I really hope to prove Dr. Spano wrong! :-)</p>
+<p>This project aims to put my theory to rest (whether I'm right or wrong).</p>
 
 <h2>MVP:</h2>
 <p>An application that will play individual notes and present users with color coded (and notated) options. The game will start presenting only two notes (with only two possible squares). Once the user reaches a certain level of proficiency (get five notes correct consecutively) a third note will be introduced. This pattern will continue until the entire chromatic scale is presented.</p>
