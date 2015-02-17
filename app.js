@@ -56,16 +56,16 @@ passport.deserializeUser(function(id, done){
 
 // HOME PAGE
 app.get("/", function (req, res) {
-  console.log(req.users);
-  res.render("index", {currentUser: req.users});
+  console.log("THE CURRENT USER IS: ",req.user);
+  res.render("index", {currentUser: req.user});
 });
 
 // WHEN SOMEONE WANTS THE SIGNUP PAGE
 app.get("/register", function (req, res) {
-   if (!req.users) {
-    res.render("users/register", {currentUser: req.users});
+   if (!req.user) {
+    res.render("users/register", {currentUser: req.user});
   } else {
-    res.redirect("/", {currentUser: req.users});
+    res.redirect("/", {currentUser: req.user});
   }
 });
 
@@ -93,12 +93,12 @@ app.post("/users", function (req, res) {
 
 // WHEN SOMEONE WANTS THE LOGIN PAGE
 app.get("/login", function (req, res) {
-    if (req.users) {
+    if (req.user) {
       console.log("App Login Get");
     res.redirect("/");
   } else {
     console.log("App Login Get Else");
-    res.render("users/login", {currentUser: req.users});
+    res.render("users/login", {currentUser: req.user});
   }
 });
 

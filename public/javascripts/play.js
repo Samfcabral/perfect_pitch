@@ -1,6 +1,6 @@
 
 // global variables
-var level = 3;
+var level = 2;
 var note_guess;
 var note_played;
 var my_notes_array = [];
@@ -29,9 +29,12 @@ function shuffle(array) {
 
 // when user clicks "play"
 $(function () {
+    $("#currentScore").html(score);
+    $("#currentLevel").html(level);
   // setting up divs
   for (var i = 1; i <= 12; i++) {
-    divs_arr.push(document.getElementById('note' + i));
+    //divs_arr.push(document.getElementById('note' + i));
+    divs_arr.push($('#note' + i));
   }
 
   // function to set up images
@@ -42,12 +45,11 @@ $(function () {
     shuffle(my_notes_array);
     //set inner HTML
     my_notes_array.forEach(function (note, i) {
-      divs_arr[i].innerHTML = "<img src='images/" + (my_notes_array[i] + 1) + ".png'>";
+      divs_arr[i].append("<img class='stupe' src='images/" + (my_notes_array[i] + 1) + ".png'>");
       });
-    console.log(divs_arr);
+    console.log("This is my ", divs_arr);
     console.log("This is my_notes_array " + my_notes_array);
-
-  }
+  };
 
   set_notes(level);
   
@@ -65,7 +67,7 @@ $(function () {
   });
 
 // On Click for each div
-  var one = document.getElementById("note1");
+  var one = document.createElement("audio");
     $("#note1").on("click", function () {
       console.log("note clicked");
       one.src = "audio/" + (my_notes_array[0] + 1)  + ".mp3";
@@ -76,7 +78,7 @@ $(function () {
       one.play();
     });
 
-  var two = document.getElementById("note2");
+  var two = document.createElement("audio");
     $("#note2").on("click", function () {
       console.log("note clicked");
       two.src = "audio/" + (my_notes_array[1] + 1)  + ".mp3";
@@ -84,10 +86,10 @@ $(function () {
       note_guess = (my_notes_array[1] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      two.src.play();
+      two.play();
     });
 
-  var three = document.getElementById("note3");
+  var three = document.createElement("audio");
     $("#note3").on("click", function () {
       console.log("note clicked");
       three.src = "audio/" + (my_notes_array[2] + 1)  + ".mp3";
@@ -95,10 +97,10 @@ $(function () {
       note_guess = (my_notes_array[2] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      three.src.play();
+      three.play();
     });
 
-  var four = document.getElementById("note4");
+  var four = document.createElement("audio");
     $("#note4").on("click", function () {
       console.log("note clicked");
       four.src = "audio/" + (my_notes_array[3] + 1)  + ".mp3";
@@ -106,10 +108,10 @@ $(function () {
       note_guess = (my_notes_array[3] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      four.src.play();
+      four.play();
     });
 
-  var five = document.getElementById("note5");
+  var five = document.createElement("audio");
     $("#note5").on("click", function () {
       console.log("note clicked");
       five.src = "audio/" + (my_notes_array[4] + 1)  + ".mp3";
@@ -117,10 +119,10 @@ $(function () {
       note_guess = (my_notes_array[4] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      five.src.play();
+      five.play();
     });
 
-  var six = document.getElementById("note6");
+  var six = document.createElement("audio");
     $("#note6").on("click", function () {
       console.log("note clicked");
       six.src = "audio/" + (my_notes_array[5] + 1)  + ".mp3";
@@ -128,10 +130,10 @@ $(function () {
       note_guess = (my_notes_array[5] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      six.src.play();
+      six.play();
     });
 
-  var seven = document.getElementById("note7");
+  var seven = document.createElement("audio");
     $("#note7").on("click", function () {
       console.log("note clicked");
       seven.src = "audio/" + (my_notes_array[6] + 1)  + ".mp3";
@@ -139,10 +141,10 @@ $(function () {
       note_guess = (my_notes_array[6] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      seven.src.play();
+      seven.play();
     });
 
-  var eight = document.getElementById("note8");
+  var eight = document.createElement("audio");
     $("#note8").on("click", function () {
       console.log("note clicked");
       eight.src = "audio/" + (my_notes_array[7] + 1)  + ".mp3";
@@ -150,10 +152,10 @@ $(function () {
       note_guess = (my_notes_array[7] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      eight.src.play();
+      eight.play();
     });
   
-  var nine = document.getElementById("note9");
+  var nine = document.createElement("audio");
     $("#note9").on("click", function () {
       console.log("note clicked");
       nine.src = "audio/" + (my_notes_array[8] + 1)  + ".mp3";
@@ -161,10 +163,10 @@ $(function () {
       note_guess = (my_notes_array[8] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      nine.src.play();
+      nine.play();
     });
 
-  var ten = document.getElementById("note10");
+  var ten = document.createElement("audio");
     $("#note10").on("click", function () {
       console.log("note clicked");
       ten.src = "audio/" + (my_notes_array[9] + 1)  + ".mp3";
@@ -172,10 +174,10 @@ $(function () {
       note_guess = (my_notes_array[9] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      ten.src.play();
+      ten.play();
     });
 
-  var eleven = document.getElementById("note11");
+  var eleven = document.createElement("audio");
     $("#note11").on("click", function () {
       console.log("note clicked");
       eleven.src = "audio/" + (my_notes_array[10] + 1)  + ".mp3";
@@ -183,10 +185,10 @@ $(function () {
       note_guess = (my_notes_array[10] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      eleven.src.play();
+      eleven.play();
     });
 
-  var twelve = document.getElementById("note12");
+  var twelve = document.createElement("audio");
     $("#note12").on("click", function () {
       console.log("note clicked");
       twelve.src = "audio/" + (my_notes_array[11] + 1)  + ".mp3";
@@ -194,30 +196,35 @@ $(function () {
       note_guess = (my_notes_array[11] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      twelve.src.play();
+      twelve.play();
     });
 
   // function to check if note played by computer matches note played by user
   var note_match = function (note_guess, note_played) {
     if (note_guess === note_played) {
       console.log("Correct!");
+      $(".feedback_message").html("Correct!");
       score = score + 1;
+      $("#currentScore").html(score);
+      $("#currentLevel").html(level);
       console.log("Current score " + score);
         if (score === 5) {
           level = level + 1;
           console.log("Current level is " + level);
-          //Reset possible notes
+          console.log("BEFORE: ",$('.stupe'));
+          $('.stupe').remove();
+          console.log("AFTER: ",$('.stupe'));
+          my_notes_array = [];
+          set_notes(level);
           score = 0;
         }
-      //show "correct note" message
     } else {
       console.log("Wrong note");
+      $(".feedback_message").html("Incorrect!");
       score = 0;
       console.log("Current score " + score);
-      //show "incorrect note" message
+      $("#currentScore").html(score);
+      $("#currentLevel").html(level);
     }
-    setup_notes(level);
   };
-
- 
 });

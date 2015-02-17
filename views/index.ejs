@@ -43,9 +43,9 @@
               <li><a href="/register">Register</a></li>
               <li><a href="/login">Login</a></li>
             <% }else{ %>
-              <li><a href="/logout">Logout</a></li>
+              <li><a href="#">Hello <%= currentUser.name %></a></li>
               <li><a href="/users/<%= currentUser.id %>">Score Board</a></li>
-              <li><a href="#">Hello <%= currentUser.firstName %></a></li>
+              <li><a href="/logout">Logout</a></li>
             <% }%>
           </ul>
         </div><!--/.nav-collapse -->
@@ -63,8 +63,8 @@
 
           <div class="row">
             <div class="col-xs-6 col-sm-5">
-              <h4 class="cover-heading">Level: </h4>
-              <h4 class="cover-heading">Scoreboard: </h4>
+              <h4 class="cover-heading">Level: <span id="currentLevel"></span> </h4>
+              <h4 class="cover-heading">Scoreboard: <span id="currentScore"></span></h4>
             </div>
             <div class="col-xs-6 col-sm-7">
               <button type="button" class="btn btn-primary btn-lg play">Play Note</button>
@@ -73,7 +73,7 @@
 
           <div class="row">
             <div class="message">
-              <h3 class="feedback_message">Correct/Incorrect Message!</h3>
+              <h3 class="feedback_message"></h3>
             </div>
           </div>
 

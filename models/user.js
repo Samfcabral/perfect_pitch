@@ -94,7 +94,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     function (req, email, password, done) {
       console.log("Authenticating");
-      user.authenticate(email, password, done);
+      users.authenticate(email, password, done);
     }
   ))
   return users;
