@@ -7,6 +7,7 @@ var my_notes_array = [];
 var divs_arr = [];
 var score = 0;
 var wrong = 0;
+var which_octave;
 
 // // Function to shuffle an array
 function shuffle(array) {
@@ -60,6 +61,15 @@ $(function () {
   };
 
 
+  var new_octave = function(){
+    console.log("IN HERE");
+    var octave = Math.floor(Math.random() * 5);
+    if (octave<2) {
+      return new_octave();
+    } else {
+      return octave;
+    }
+  };
   
 // On Click of "play note"
   var x = document.createElement("audio"); 
@@ -67,10 +77,15 @@ $(function () {
   $(".play").on("click", function () {
       console.log("clicked");
       note_played = Math.ceil(Math.random() * level);
+      which_octave = new_octave();
+      console.log("THIS IS THE OCTAVE:", which_octave);
+      // if (which_octave < 2) {
+      //   which_octave = Math.floor(Math.random() * 5);
+      // }
       console.log("This is the note played " + note_played);
        // var x = document.createElement("audio"); 
        // console.log(x.ended)
-      x.src = "audio/" + note_played +".mp3"; 
+      x.src = "audio/" + note_played + "-" + which_octave + ".mp3"; 
       x.play();
       $('.stupe').remove();
       console.log("AFTER: ",$('.stupe'));
@@ -93,7 +108,7 @@ $(function () {
   var one = document.createElement("audio");
     $("#note1").on("click", function () {
       console.log("note clicked");
-      one.src = "audio/" + (my_notes_array[0] + 1)  + ".mp3";
+      one.src = "audio/" + (my_notes_array[0] + 1)  + "-" + which_octave + ".mp3";
       console.log(one.src);
       note_guess = (my_notes_array[0] + 1);
       console.log("Note guessed " + note_guess);
@@ -104,7 +119,7 @@ $(function () {
   var two = document.createElement("audio");
     $("#note2").on("click", function () {
       console.log("note clicked");
-      two.src = "audio/" + (my_notes_array[1] + 1)  + ".mp3";
+      two.src = "audio/" + (my_notes_array[1] + 1)  + "-" + which_octave + ".mp3";
       console.log(two.src);
       note_guess = (my_notes_array[1] + 1);
       console.log("Note guessed " + note_guess);
@@ -115,7 +130,7 @@ $(function () {
   var three = document.createElement("audio");
     $("#note3").on("click", function () {
       console.log("note clicked");
-      three.src = "audio/" + (my_notes_array[2] + 1)  + ".mp3";
+      three.src = "audio/" + (my_notes_array[2] + 1)  + "-" + which_octave + ".mp3";
       console.log(three.src);
       note_guess = (my_notes_array[2] + 1);
       console.log("Note guessed " + note_guess);
@@ -126,7 +141,7 @@ $(function () {
   var four = document.createElement("audio");
     $("#note4").on("click", function () {
       console.log("note clicked");
-      four.src = "audio/" + (my_notes_array[3] + 1)  + ".mp3";
+      four.src = "audio/" + (my_notes_array[3] + 1)  + "-" + which_octave + ".mp3";
       console.log(four.src);
       note_guess = (my_notes_array[3] + 1);
       console.log("Note guessed " + note_guess);
@@ -137,7 +152,7 @@ $(function () {
   var five = document.createElement("audio");
     $("#note5").on("click", function () {
       console.log("note clicked");
-      five.src = "audio/" + (my_notes_array[4] + 1)  + ".mp3";
+      five.src = "audio/" + (my_notes_array[4] + 1)  + "-" + which_octave + ".mp3";
       console.log(five.src);
       note_guess = (my_notes_array[4] + 1);
       console.log("Note guessed " + note_guess);
@@ -148,7 +163,7 @@ $(function () {
   var six = document.createElement("audio");
     $("#note6").on("click", function () {
       console.log("note clicked");
-      six.src = "audio/" + (my_notes_array[5] + 1)  + ".mp3";
+      six.src = "audio/" + (my_notes_array[5] + 1)  + "-" + which_octave + ".mp3";
       console.log(six.src);
       note_guess = (my_notes_array[5] + 1);
       console.log("Note guessed " + note_guess);
@@ -159,7 +174,7 @@ $(function () {
   var seven = document.createElement("audio");
     $("#note7").on("click", function () {
       console.log("note clicked");
-      seven.src = "audio/" + (my_notes_array[6] + 1)  + ".mp3";
+      seven.src = "audio/" + (my_notes_array[6] + 1)  + "-" + which_octave + ".mp3";
       console.log(seven.src);
       note_guess = (my_notes_array[6] + 1);
       console.log("Note guessed " + note_guess);
@@ -170,7 +185,7 @@ $(function () {
   var eight = document.createElement("audio");
     $("#note8").on("click", function () {
       console.log("note clicked");
-      eight.src = "audio/" + (my_notes_array[7] + 1)  + ".mp3";
+      eight.src = "audio/" + (my_notes_array[7] + 1)  + "-" + which_octave + ".mp3";
       console.log(eight.src);
       note_guess = (my_notes_array[7] + 1);
       console.log("Note guessed " + note_guess);
@@ -181,7 +196,7 @@ $(function () {
   var nine = document.createElement("audio");
     $("#note9").on("click", function () {
       console.log("note clicked");
-      nine.src = "audio/" + (my_notes_array[8] + 1)  + ".mp3";
+      nine.src = "audio/" + (my_notes_array[8] + 1)  + "-" + which_octave + ".mp3";
       console.log(nine.src);
       note_guess = (my_notes_array[8] + 1);
       console.log("Note guessed " + note_guess);
@@ -192,7 +207,7 @@ $(function () {
   var ten = document.createElement("audio");
     $("#note10").on("click", function () {
       console.log("note clicked");
-      ten.src = "audio/" + (my_notes_array[9] + 1)  + ".mp3";
+      ten.src = "audio/" + (my_notes_array[9] + 1)  + "-" + which_octave + ".mp3";
       console.log(ten.src);
       note_guess = (my_notes_array[9] + 1);
       console.log("Note guessed " + note_guess);
@@ -203,7 +218,7 @@ $(function () {
   var eleven = document.createElement("audio");
     $("#note11").on("click", function () {
       console.log("note clicked");
-      eleven.src = "audio/" + (my_notes_array[10] + 1)  + ".mp3";
+      eleven.src = "audio/" + (my_notes_array[10] + 1)  + "-" + which_octave + ".mp3";
       console.log(eleven.src);
       note_guess = (my_notes_array[10] + 1);
       console.log("Note guessed " + note_guess);
@@ -214,7 +229,7 @@ $(function () {
   var twelve = document.createElement("audio");
     $("#note12").on("click", function () {
       console.log("note clicked");
-      twelve.src = "audio/" + (my_notes_array[11] + 1)  + ".mp3";
+      twelve.src = "audio/" + (my_notes_array[11] + 1)  + "-" + which_octave + ".mp3";
       console.log(twelve.src);
       note_guess = (my_notes_array[11] + 1);
       console.log("Note guessed " + note_guess);
