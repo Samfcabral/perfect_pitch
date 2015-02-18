@@ -230,6 +230,7 @@ $(function () {
       score = score + 1;
       $("#currentScore").html(score);
       $("#currentLevel").html(level);
+      wrong = 0;
       console.log("Current score " + score);
         if (score === 5) {
           $(".feedback_message").html("You moved to the next level!");
