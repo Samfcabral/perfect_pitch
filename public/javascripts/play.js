@@ -261,11 +261,12 @@ $(function () {
           $.post("/users_level", {level: level})
           $("#currentScore").html(score);
           $("#currentLevel").html(level);
+          correct.play();
           console.log("Current level is " + level);
           console.log("BEFORE: ",$('.stupe'));
           score = 0;
         }
-      correct.play();
+      
     } else {
       console.log("Wrong note");
       wrong +=1;
@@ -276,10 +277,10 @@ $(function () {
         level = level -1;
         $.post("/users_level", {level: level});
         wrong = 0;
+        incorrect.play();
       }
       $("#currentScore").html(score);
       $("#currentLevel").html(level);
-      incorrect.play();
     }
       $('.stupe').remove();
       console.log("AFTER: ",$('.stupe'));
