@@ -116,132 +116,132 @@ $(function () {
     $("#note1").on("click", function () {
       console.log("note clicked");
       one.src = "audio/" + (my_notes_array[0] + 1)  + "-" + which_octave + ".mp3";
+      one.play();
       console.log(one.src);
       note_guess = (my_notes_array[0] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      one.play();
     });
 
   var two = document.createElement("audio");
     $("#note2").on("click", function () {
       console.log("note clicked");
       two.src = "audio/" + (my_notes_array[1] + 1)  + "-" + which_octave + ".mp3";
+      two.play();
       console.log(two.src);
       note_guess = (my_notes_array[1] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      two.play();
     });
 
   var three = document.createElement("audio");
     $("#note3").on("click", function () {
       console.log("note clicked");
       three.src = "audio/" + (my_notes_array[2] + 1)  + "-" + which_octave + ".mp3";
+      three.play();
       console.log(three.src);
       note_guess = (my_notes_array[2] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      three.play();
     });
 
   var four = document.createElement("audio");
     $("#note4").on("click", function () {
       console.log("note clicked");
       four.src = "audio/" + (my_notes_array[3] + 1)  + "-" + which_octave + ".mp3";
+      four.play();
       console.log(four.src);
       note_guess = (my_notes_array[3] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      four.play();
     });
 
   var five = document.createElement("audio");
     $("#note5").on("click", function () {
       console.log("note clicked");
       five.src = "audio/" + (my_notes_array[4] + 1)  + "-" + which_octave + ".mp3";
+      five.play();
       console.log(five.src);
       note_guess = (my_notes_array[4] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      five.play();
     });
 
   var six = document.createElement("audio");
     $("#note6").on("click", function () {
       console.log("note clicked");
       six.src = "audio/" + (my_notes_array[5] + 1)  + "-" + which_octave + ".mp3";
+      six.play();
       console.log(six.src);
       note_guess = (my_notes_array[5] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      six.play();
     });
 
   var seven = document.createElement("audio");
     $("#note7").on("click", function () {
       console.log("note clicked");
       seven.src = "audio/" + (my_notes_array[6] + 1)  + "-" + which_octave + ".mp3";
+      seven.play();
       console.log(seven.src);
       note_guess = (my_notes_array[6] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      seven.play();
     });
 
   var eight = document.createElement("audio");
     $("#note8").on("click", function () {
       console.log("note clicked");
       eight.src = "audio/" + (my_notes_array[7] + 1)  + "-" + which_octave + ".mp3";
+      eight.play();
       console.log(eight.src);
       note_guess = (my_notes_array[7] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      eight.play();
     });
   
   var nine = document.createElement("audio");
     $("#note9").on("click", function () {
       console.log("note clicked");
       nine.src = "audio/" + (my_notes_array[8] + 1)  + "-" + which_octave + ".mp3";
+      nine.play();
       console.log(nine.src);
       note_guess = (my_notes_array[8] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      nine.play();
     });
 
   var ten = document.createElement("audio");
     $("#note10").on("click", function () {
       console.log("note clicked");
       ten.src = "audio/" + (my_notes_array[9] + 1)  + "-" + which_octave + ".mp3";
+      ten.play();
       console.log(ten.src);
       note_guess = (my_notes_array[9] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      ten.play();
     });
 
   var eleven = document.createElement("audio");
     $("#note11").on("click", function () {
       console.log("note clicked");
       eleven.src = "audio/" + (my_notes_array[10] + 1)  + "-" + which_octave + ".mp3";
+      eleven.play();
       console.log(eleven.src);
       note_guess = (my_notes_array[10] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      eleven.play();
     });
 
   var twelve = document.createElement("audio");
     $("#note12").on("click", function () {
       console.log("note clicked");
       twelve.src = "audio/" + (my_notes_array[11] + 1)  + "-" + which_octave + ".mp3";
+      twelve.play();
       console.log(twelve.src);
       note_guess = (my_notes_array[11] + 1);
       console.log("Note guessed " + note_guess);
       note_match(note_guess, note_played);
-      twelve.play();
     });
 
   // function to check if note played by computer matches note played by user
@@ -284,6 +284,5 @@ $(function () {
       $('.stupe').remove();
       console.log("AFTER: ",$('.stupe'));
       my_notes_array = [];
-      // set_notes(level);
   };
 });
