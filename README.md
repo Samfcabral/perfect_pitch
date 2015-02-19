@@ -1,4 +1,4 @@
-The final project can be found HERE.
+The final project can be found <a href="https://perfect-pitch-land.herokuapp.com/">HERE.</a>
 
 <h2>Elevator pitch:</h2>
 <p>An ear training application for children 1-3 years old to develop perfect pitch.</p>
