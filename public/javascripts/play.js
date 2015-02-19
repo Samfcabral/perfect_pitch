@@ -71,9 +71,16 @@ $(function () {
     }
   };
   
-// On Click of "play note"
+  var correct = document.createElement("audio");
+  correct.src = "audio/correct.m4a";
+
+  var incorrect = document.createElement("audio");
+  incorrect.src = "audio/incorrect.m4a";
+
+
   var x = document.createElement("audio"); 
   console.log("Running");
+// On Click of "play note"
   $(".play").on("click", function () {
       console.log("clicked");
       note_played = Math.ceil(Math.random() * level);
@@ -241,6 +248,7 @@ $(function () {
   var note_match = function (note_guess, note_played) {
     if (note_guess === note_played) {
       console.log("Correct!");
+      
       $(".feedback_message").html("Correct!");
       score = score + 1;
       $("#currentScore").html(score);
@@ -257,6 +265,7 @@ $(function () {
           console.log("BEFORE: ",$('.stupe'));
           score = 0;
         }
+      correct.play();
     } else {
       console.log("Wrong note");
       wrong +=1;
@@ -270,7 +279,7 @@ $(function () {
       }
       $("#currentScore").html(score);
       $("#currentLevel").html(level);
-
+      incorrect.play();
     }
       $('.stupe').remove();
       console.log("AFTER: ",$('.stupe'));
