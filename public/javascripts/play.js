@@ -63,7 +63,7 @@ $(function () {
 
   var new_octave = function(){
     console.log("IN HERE");
-    var octave = Math.floor(Math.random() * 5);
+    var octave = Math.floor(Math.random() * 4);
     if (octave<2) {
       return new_octave();
     } else {
