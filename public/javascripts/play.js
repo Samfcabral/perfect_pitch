@@ -36,7 +36,7 @@ $(function () {
       $("#currentScore").html(score);
       $("#currentLevel").html(level);
       $('.stupe').remove();
-      set_notes(level);
+      // set_notes(level);
     });
     $("#currentScore").html(score);
     $("#currentLevel").html(level);
