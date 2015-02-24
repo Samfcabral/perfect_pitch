@@ -1,13 +1,5 @@
 
-// global variables
-var level = 2;
-var note_guess;
-var note_played;
-var my_notes_array = [];
-var divs_arr = [];
-var score = 0;
-var wrong = 0;
-var which_octave;
+
 
 // // Function to shuffle an array
 function shuffle(array) {
@@ -30,6 +22,15 @@ function shuffle(array) {
 }
 
 $(function () {
+  var level = 2;
+  var note_guess;
+  var note_played;
+  var my_notes_array = [];
+  var divs_arr = [];
+  var score = 0;
+  var wrong = 0;
+  var which_octave;
+
   $.get("/users_level").
     done(function (data) {
       level = data[0].levelId || 2;
