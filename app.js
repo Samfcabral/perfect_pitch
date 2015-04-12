@@ -75,7 +75,7 @@ app.post("/users", function (req, res) {
   var newUser = req.body.users;
   console.log("New User:", newUser);
   // CREATE a user and secure their password
-  db.users.createSecure(newUser.email, newUser.password_digest, newUser.name, newUser.age, 
+  db.users.createSecure(newUser.email, newUser.password_digest, 
     function () {
       // if a user fails to create make them signup again
       res.redirect("/");
