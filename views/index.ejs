@@ -40,7 +40,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if (!currentUser)  {%> 
-              <li><a href="/register">Register</a></li>
+              <li><a href="/register">Save Progress</a></li>
               <li><a href="/login">Login</a></li>
             <% }else{ %>
               <li><a href="#">Hello <%= currentUser.name %></a></li>
@@ -60,16 +60,7 @@
       <div class="site-wrapper-inner">
         <div class="inner cover">
 
-          <% if (!currentUser)  {%> 
-          <div class="row">
-            <div class="welcome_message">
-            <br>
-              <h2>Welcome to Perfect Pitch Land!</h2>
-              <h4>If you don't have an account you can <a href="/register">sign up here</a></h4>
-              <h4>If you already have an account please <a href="/login">sign in</a></h4>
-            </div>
-          </div>
-          <% } else { %>
+
           <div class="row">
             <div class="col-xs-6 col-sm-5">
               <h4 class="cover-heading">Level: <span id="currentLevel"></span> </h4>
@@ -77,7 +68,6 @@
             </div>
             <div class="col-xs-6 col-sm-7">
               <button type="button" class="btn btn-primary btn-lg play">Play Note</button>
-              <button type="button" class="btn btn-lg replay">Replay Last Note</button>
             </div>
           </div>
           
@@ -90,57 +80,21 @@
 
           <!-- Start rows of notes -->
           <div class="row">
-            <div class="col-xs-6 col-sm-3">
+            <div class="col-xs-6 col-sm-4">
               <div class="notes" id="note1">
               </div>
             </div>
-            <div class="col-xs-6 col-sm-3">
+            <div class="col-xs-6 col-sm-4">
               <div class="notes" id="note2">
               </div>
             </div>
-            <div class="col-xs-6 col-sm-3">
+            <div class="col-xs-6 col-sm-4">
               <div class="notes" id="note3">
               </div>
             </div>
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note4">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note5">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note6">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note7">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note8">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note9">
-              </div>
-            </div>            
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note10">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note11">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-              <div class="notes" id="note12">
-              </div>
-            </div>
+
           </div>
           <!--End of row of notes -->
-        <% } %>
         </div>
       </div>
     </div>

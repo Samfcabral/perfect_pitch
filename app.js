@@ -55,7 +55,7 @@ passport.deserializeUser(function(id, done){
 });
 
 // HOME PAGE
-app.get("/", function (req, res) {
+app.get("/", function (req, res, error) {
   console.log("THE CURRENT USER IS: ",req.user);
   res.render("index", {currentUser: req.user});
 });

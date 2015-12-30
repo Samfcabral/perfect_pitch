@@ -1,15 +1,9 @@
 {
   "development": {
+    "username": "samuelcabral",
+    "password": null,
     "database": "perfect_pitch_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
-  },
-  "test": {
-    "database": "perfect_pitch",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  },
-  "production": {
-    "use_env_variable": "HEROKU_POSTGRESQL_GOLD_URL"
   }
 }
